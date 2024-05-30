@@ -15,7 +15,11 @@
 
  개인적인 차원에서는 정보를 찾기 어려워하는 학생들의 정보 접근에 대한 편리성을 제공합니다.
 
-출처 <<https://www.enterpriseappstoday.com/stats/chatgpt-statistics.html>>
+출처 
+
+분야 별 Open AI 활용 수 : <<https://www.enterpriseappstoday.com/stats/chatgpt-statistics.html>>
+
+한림대학교 혁신 기획서 : <<https://glocal.hallym.ac.kr/glocal_qna/announcement/announcement.do?mode=view&articleNo=56959&article.offset=10&articleLimit=10>>
 
 -----------------
 ### 1. 프로젝트 아키텍쳐
@@ -29,16 +33,35 @@
    - 5.8B 개의 파라미터를 가지고 있으며, Bloom모델을 기반으로 한국어와 다양안 언어로 추가 학습되었다.
    - 토크나이저의 크기는 32,000으로 다양한 언어와 어휘를 포괄한다.
      
-<<https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B>>
+🤗<https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B>
 
 ----------------
 ### 3. Fine-tunning
 
  Koalpaca의 크기가 커서 로컬에서 진행하기에는 큰 한계가 있습니다. 본 프로젝트에서는 구글 코랩(Colab) 프로 플러스 버전의 A100 GPU를 사용했습니다.
 
+fine-tunning code &rarr; 
+<a style='display:inline' target="_blank" href="https://drive.google.com/file/d/1sGJOqHJOOthNo5KTPrjZZo14y-zLNzCf/view?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+#### 3-1. 허깅페이스에 올린 모델 다시 로드
+
+ 파인튜닝하여 허깅페이스에 업로드한 모델을 다시 불러와 테스트합니다.
+
+ model load test code &rarr; 
+<a style='display:inline' target="_blank" href="https://colab.research.google.com/drive/1XlfRxnlC1dmt2HoMj4BoVJiNLurVvWre?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+
+
+ 허깅페이스 주소 &rarr; 🤗<https://huggingface.co/EUNHWA11/koalpaca_step_8000_hallym_DaAra>
+ 
+
  -----------------------
 
- ### 4. 
+ ### 4. RAG
 
 
 
@@ -50,9 +73,9 @@
 한림대학교 챗봇 "DA-ARA" 구현화면 확인하기
 (https://hallym-daara.netlify.app/)
 
-----------------
 
-### 6. 모든 기능 소개
+
+#### 5-1. 모든 기능 소개
 > 1. 로그인 및 회원가입
 성명, 학번, 비밀번호, 학과 입력시 회원가입이 가능하다.
 학번과 비밀번호를 입력하여 로그인이 가능하다.
@@ -78,12 +101,20 @@
 한국어, 영어, 중국어, 일본어 총 4개 언어의 번역 기능을 제공한다. 해당 언어 클릭 시 현재까지의 대화 내용을 해당 언어로 번역할 수 있다.
 ![언어변경](https://github.com/Kimsuyeon0809/Hallym_Chat-bot/assets/108513967/313c864d-8cf1-44c4-a6d9-ed1c3ec1b686)
 
-----------------
 
-### 7. 사용API
+
+#### 5-2. 사용API
 |API|설명|
 |------|---|
 |SpeechSynthesis API|TTS API , 스피커를 통해 챗봇의 응답 음성 출력 가능|
 |react-speech-recognition API|STT API, 마이크를 통해 음성인식 후 텍스트 입력 가능|
 |구글번역 API|4개국어(한국어, 영어, 중국어, 일본어)를 지원|
 |Flask API 프레임워크|인공지능 모델 개발 (Restful API로 요청과 응답을 Json 타입으로 통신하고, Json 값을 처리하여 사용자와 챗봇의 대화 내용을 웹에 출력하는 형태)|
+
+-------------------
+
+
+
+
+
+
